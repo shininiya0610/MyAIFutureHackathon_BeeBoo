@@ -1,0 +1,12 @@
+{
+  "name": "GuardianLink",
+  "description": "A smart home-care monitoring system for the elderly, linking wearable data to guardians and emergency departments with AI-powered health analysis.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI Analysis",
+    "Real-time Monitoring",
+    "Emergency Response"
+  ]
+}

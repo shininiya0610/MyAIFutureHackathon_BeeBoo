@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Natural Tones Palette */
+  --color-natural-bg: #F7F5F2;
+  --color-natural-card: #FFFFFF;
+  --color-natural-sage: #8E927A;
+  --color-natural-olive: #5A5A40;
+  --color-natural-warm: #D48C70;
+  --color-natural-text: #2D2926;
+  --color-natural-muted: #6B655F;
+  --color-natural-border: #E8E4DF;
+  --color-natural-vital: #F9F8F6;
+  --color-natural-badge-bg: #ECF0EB;
+  --color-natural-badge-text: #4A6341;
+
+  /* Aliasing for easier use */
+  --color-medical-primary: var(--color-natural-olive);
+  --color-medical-secondary: var(--color-natural-muted);
+  --color-medical-danger: var(--color-natural-warm);
+  --color-medical-warning: var(--color-natural-warm);
+  --color-medical-success: var(--color-natural-sage);
+  --color-medical-bg: var(--color-natural-bg);
+}
+
+@layer base {
+  body {
+    @apply bg-natural-bg text-natural-text font-sans antialiased;
+  }
+}
+
+.health-card {
+  @apply bg-natural-card border border-natural-border rounded-[24px] shadow-[0_4px_12px_rgba(90,90,64,0.04)] overflow-hidden transition-all duration-300;
+}
+
+.health-card:hover {
+  @apply shadow-[0_8px_20px_rgba(90,90,64,0.08)];
+}
+
+.vital-item-card {
+  @apply bg-natural-vital p-4 rounded-[16px] transition-colors;
+}
+
+.status-badge {
+  @apply inline-block px-3 py-1 bg-natural-badge-bg text-natural-badge-text rounded-full text-xs font-semibold;
+}
+
+.status-pulse {
+  @apply w-2.5 h-2.5 rounded-full relative;
+}
+
+.status-pulse::after {
+  content: '';
+  @apply absolute inset-0 rounded-full animate-ping opacity-75;
+  background-color: inherit;
+}
+
+.emergency-theme-panel {
+  @apply bg-natural-olive text-white;
+}
+
+.btn-natural-primary {
+  @apply px-6 py-3 bg-white text-natural-olive rounded-xl font-bold transition-all hover:opacity-90;
+}
+
+.btn-natural-outline {
+  @apply px-6 py-3 bg-transparent border border-white/30 text-white rounded-xl font-bold transition-all hover:bg-white/5;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.alert-flash {
+  animation: flash 1s infinite;
+}
+
