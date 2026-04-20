@@ -3,13 +3,12 @@ import path from "path";
 
 const app = express();
 
-// Serve static files from Vite build
-const __dirname = new URL('.', import.meta.url).pathname;
-app.use(express.static(path.join(__dirname, "dist")));
+// Serve static files from public folder
+app.use(express.static('public'));
 
-// Handle React routing
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+// Always return index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
 
 // IMPORTANT: Cloud Run port
